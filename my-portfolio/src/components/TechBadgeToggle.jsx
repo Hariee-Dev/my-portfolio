@@ -8,24 +8,26 @@ import {
   SiSpringboot,
   SiTailwindcss,
   SiMysql,
-  SiMongodb,
   SiSpringsecurity,
-  SiMongoose,
+  SiApachekafka,
+  SiDocker,
+  SiClickhouse,
 } from 'react-icons/si';
 
 const TechBadgeToggle = () => {
   const [showList, setShowList] = useState(false);
 
   const techStack = [
-    { name: 'React', icon: FaReact, bg: 'bg-cyan-600' },
-    { name: 'Java', icon: FaJava, bg: 'bg-red-700' },
-    { name: 'Spring Boot', icon: SiSpringboot, bg: 'bg-green-700' },
-    { name: 'GitHub', icon: FaGithub, bg: 'bg-gray-800' },
-    { name: 'Tailwind CSS', icon: SiTailwindcss, bg: 'bg-blue-500' },
-    { name: 'MySQL', icon: SiMysql, bg: 'bg-yellow-600' },
-    { name: 'MongoDB', icon: SiMongodb, bg: 'bg-green-600' },
-    { name: 'Spring Security', icon: SiSpringsecurity, bg: 'bg-lime-700' },
-    { name: 'Mongoose', icon: SiMongoose, bg: 'bg-indigo-600' },
+    { name: 'Java', icon: FaJava, bg: 'bg-gradient-to-r from-red-600 to-orange-600' },
+    { name: 'Spring Boot', icon: SiSpringboot, bg: 'bg-gradient-to-r from-green-600 to-emerald-600' },
+    { name: 'Spring Security', icon: SiSpringsecurity, bg: 'bg-gradient-to-r from-lime-600 to-green-700' },
+    { name: 'Apache Kafka', icon: SiApachekafka, bg: 'bg-gradient-to-r from-gray-700 to-gray-900' },
+    { name: 'MySQL', icon: SiMysql, bg: 'bg-gradient-to-r from-blue-600 to-cyan-600' },
+    { name: 'ClickHouse', icon: SiClickhouse, bg: 'bg-gradient-to-r from-yellow-500 to-orange-500' },
+    { name: 'React', icon: FaReact, bg: 'bg-gradient-to-r from-cyan-500 to-blue-500' },
+    { name: 'Tailwind CSS', icon: SiTailwindcss, bg: 'bg-gradient-to-r from-sky-400 to-blue-500' },
+    { name: 'Docker', icon: SiDocker, bg: 'bg-gradient-to-r from-blue-500 to-indigo-600' },
+    { name: 'GitHub', icon: FaGithub, bg: 'bg-gradient-to-r from-zinc-700 to-zinc-900' },
   ];
 
   return (

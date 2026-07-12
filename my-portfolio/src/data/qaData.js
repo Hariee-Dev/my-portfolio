@@ -1,97 +1,108 @@
+import React from 'react';
 import {
   FaReact,
-  FaNodeJs,
   FaJava,
-  FaDatabase,
+  FaGithub,
+  FaGitAlt,
 } from 'react-icons/fa';
 import {
   SiTailwindcss,
-  SiTypescript,
-  SiVite,
   SiSpringboot,
-  SiAdobephotoshop,
-  SiAdobeillustrator,
-  SiOpenai,
   SiHtml5,
   SiCss3,
   SiJavascript,
   SiMysql,
-  SiMongodb,
+  SiApachekafka,
+  SiDocker,
+  SiPostman,
+  SiSpringsecurity,
+  SiBootstrap,
 } from 'react-icons/si';
-import { TbBrandNextjs } from 'react-icons/tb';
-import { BiColorFill } from 'react-icons/bi';
 
 const qaData = [
   {
-    title: "Apps",
-    description: `I develop responsive web-based applications using modern frontend tools.
-
-My stack includes everything from semantic HTML and custom styling to utility-first CSS and component-based UI libraries.`,
-    icons: [
-      { icon: SiHtml5, color: '#E34F26', title: 'HTML' },
-      { icon: SiCss3, color: '#1572B6', title: 'CSS' },
-      { icon: SiTailwindcss, color: '#38BDF8', title: 'Tailwind CSS' },
-      { icon: BiColorFill, color: '#FF69B4', title: 'DaisyUI' },
-      { icon: SiJavascript, color: '#F7DF1E', title: 'JavaScript' },
-      { icon: FaReact, color: '#61DBFB', title: 'React' },
-      { icon: SiVite, color: '#646CFF', title: 'Vite' },
-    ],
-  },
-  {
-    title: "QA",
-    description: `I've worked with a variety of tools to ensure our code is always of the highest quality.
-
-Recently, I also started using AI tools like ChatGPT, Gemini, DeepSeek, and Claid to assist with code reviews, refactoring, and design feedback.`,
-    icons: [
-      { icon: SiOpenai, color: '#10A37F', title: 'ChatGPT' },
-      {
-        icon: () => (
-          <span className="text-xs font-semibold px-2 py-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded text-white">
-            Gemini
-          </span>
-        ),
-        color: '',
-        title: 'Gemini',
-      },
-      {
-        icon: () => (
-          <span className="text-xs font-semibold px-2 py-1 bg-purple-500 rounded text-white">
-            DeepSeek
-          </span>
-        ),
-        color: '',
-        title: 'DeepSeek',
-      },
-      {
-        icon: () => (
-          <span className="text-xs font-semibold px-2 py-1 bg-pink-500 rounded text-white">
-            claude
-          </span>
-        ),
-        color: '',
-        title: 'claude',
-      },
-    ],
-  },
-  {
-    title: "APIs",
-    description: `RESTful APIs, microservices, serverless functions, and more.
-
-I have experience building and scaling APIs for both internal and external use.`,
+    title: "Backend & Streaming",
+    description: `I architect high-performance, secure, and event-driven backend microservices.
+    
+    My focus is on microservices, event-driven data streaming pipelines, RESTful API design, and containerized deployments.`,
     icons: [
       { icon: FaJava, color: '#E76F00', title: 'Java' },
       { icon: SiSpringboot, color: '#6DB33F', title: 'Spring Boot' },
-      { icon: FaNodeJs, color: '#3C873A', title: 'Node.js' },
+      { icon: SiApachekafka, color: '#231F20', title: 'Apache Kafka' },
+      { icon: SiDocker, color: '#2496ED', title: 'Docker' },
+      {
+        icon: () => (
+          <span className="text-[10px] font-bold px-1.5 py-0.5 bg-gray-700 rounded text-gray-200 border border-gray-600">
+            REST API
+          </span>
+        ),
+        color: '',
+        title: 'RESTful API'
+      }
     ],
   },
   {
-    title: "Database",
-    description: `Skilled in both relational and NoSQL databases. I’ve worked with traditional SQL systems and modern document-based solutions.`,
+    title: "Frontend & Design",
+    description: `I build responsive, clean, and interactive user interfaces.
+    
+    Using utility-first framework practices and standard libraries to deliver pixel-perfect designs with fluid user experiences.`,
     icons: [
-      { icon: SiMysql, color: '#00758F', title: 'MySQL' },
-      { icon: SiMongodb, color: '#47A248', title: 'MongoDB' },
+      { icon: SiHtml5, color: '#E34F26', title: 'HTML5' },
+      { icon: SiCss3, color: '#1572B6', title: 'CSS3' },
+      { icon: SiJavascript, color: '#F7DF1E', title: 'JavaScript' },
+      { icon: FaReact, color: '#61DBFB', title: 'React.js' },
+      { icon: SiTailwindcss, color: '#38BDF8', title: 'Tailwind CSS' },
+      { icon: SiBootstrap, color: '#7952B3', title: 'Bootstrap' }
     ],
   },
+  {
+    title: "Databases & Analytics",
+    description: `I design optimized schemas for both relational databases and analytical OLAP engines.
+    
+    Experienced in bulk persistence logic, query speedups, and automated business intelligence reporting pipelines.`,
+    icons: [
+      { icon: SiMysql, color: '#00758F', title: 'MySQL' },
+      {
+        icon: () => (
+          <span className="text-[10px] font-bold px-1.5 py-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 rounded text-white">
+            ClickHouse
+          </span>
+        ),
+        color: '',
+        title: 'ClickHouse'
+      },
+      {
+        icon: () => (
+          <span className="text-[10px] font-bold px-1.5 py-0.5 bg-red-600 rounded text-white">
+            JasperReports
+          </span>
+        ),
+        color: '',
+        title: 'JasperReports'
+      }
+    ],
+  },
+  {
+    title: "Security & Tools",
+    description: `I secure applications using robust access control and maintain solid development workflows.
+    
+    Expertise in authentication protocols, RBAC, Git version control, and API testing platforms.`,
+    icons: [
+      { icon: SiSpringsecurity, color: '#6DB33F', title: 'Spring Security' },
+      {
+        icon: () => (
+          <span className="text-[10px] font-bold px-1.5 py-0.5 bg-purple-600 rounded text-white">
+            JWT
+          </span>
+        ),
+        color: '',
+        title: 'JWT'
+      },
+      { icon: FaGitAlt, color: '#F05032', title: 'Git' },
+      { icon: FaGithub, color: '#FFFFFF', title: 'GitHub' },
+      { icon: SiPostman, color: '#FF6C37', title: 'Postman' }
+    ],
+  }
 ];
 
 export default qaData;

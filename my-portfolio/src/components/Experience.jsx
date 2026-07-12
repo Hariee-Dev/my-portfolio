@@ -10,13 +10,19 @@ const Experience = () => {
           
           <div>
             <h3 className="text-xl font-semibold">{exp.company}</h3>
-            <p className="text-sm text-gray-300">{exp.role} • {exp.period}</p>
-            <p className="text-sm mt-1 text-gray-400">{exp.description}</p>
-            <div className="flex flex-wrap gap-2 mt-2">
+            <p className="text-sm text-gray-300">
+              {exp.role} {exp.location && `• ${exp.location}`} • {exp.period}
+            </p>
+            <ul className="text-sm mt-3 text-gray-400 space-y-2 list-disc pl-5">
+              {exp.description.map((bullet, idx) => (
+                <li key={idx}>{bullet}</li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-2 mt-4">
               {exp.technologies.map((tech, j) => (
                 <span
                   key={j}
-                  className="bg-gray-700 px-2 py-1 rounded-full text-xs font-medium"
+                  className="bg-gray-700/80 px-2.5 py-1 rounded-full text-xs font-mono text-gray-300 border border-gray-600/30"
                 >
                   {tech}
                 </span>

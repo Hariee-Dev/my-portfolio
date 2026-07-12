@@ -3,9 +3,9 @@ import profile from '../images/profile.jpg';
 import { FaHome, FaEnvelope } from 'react-icons/fa';
 import { FaLinkedin } from 'react-icons/fa';
 import qaData from '../data/qaData';
-import TechBadgeToggle from './TechBadgeToggle'
+import TechBadgeToggle from './TechBadgeToggle';
 import Experience from './Experience';
-import experienceData from '../data/ExperienceData';
+import Projects from './Projects';
 import Footer from './Footer';
 
 
@@ -29,24 +29,23 @@ const Header = () => {
             Hariharasudhan M
           </div>
 
-          <div className="role font-thin">
-            Software Engineer
+          <div className="role font-light text-blue-400 text-lg mt-1 tracking-wide">
+            Full Stack Developer
           </div>
 
-          <div className='about mt-5'>
-            Software engineer, currently based in India. When I write code, I champion two things: simplicity and maintainability.
-            While most software nowadays suffers from bloat and over-engineering, I ensure that the projects I work on become a joy to work with, not a burden.
+          <div className='about mt-5 text-gray-300 leading-relaxed max-w-3xl'>
+            I am a results-driven Full Stack Developer with 1.4 years of professional experience building and shipping production-grade enterprise applications at Solartis. My core expertise lies in Java, Spring Boot, and React.js, with a proven track record of architecting robust microservices, implementing scalable event-driven systems using Apache Kafka, and designing high-throughput RESTful APIs. Passionate about engineering excellence, I champion simplicity, performance, and clean maintainability in every line of code I write.
           </div>
 
-          <div className="address mt-5 flex items-center gap-2">
-            <FaHome />
-            Dindigul, Tamil Nadu
+          <div className="address mt-5 flex items-center gap-2 text-gray-300 text-sm">
+            <FaHome className="text-blue-400" />
+            Madurai, Tamil Nadu
           </div>
 
-          <div className="mail mt-2 flex items-center gap-2 text-blue-300">
-            <FaEnvelope />
-            <a href='mailto:hariharasudham2712@gmail.com' className="hover:underline">
-              hello@hari.in
+          <div className="mail mt-2 flex items-center gap-2 text-blue-300 text-sm">
+            <FaEnvelope className="text-blue-400" />
+            <a href='mailto:hariharasudhanm2712@gmail.com' className="hover:underline">
+              hariharasudhanm2712@gmail.com
             </a>
           </div>
 
@@ -94,11 +93,17 @@ const Header = () => {
 
   <hr className='mt-8 border-gray-700'/>
 
-  <h2 className="text-2xl font-bold mb-6">Experience</h2>
+  <Projects />
 
-  <Experience/>
+  <hr className='mt-8 border-gray-700'/>
 
-  <Footer/>
+  <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+    Professional Experience
+  </h2>
+
+  <Experience />
+
+  <Footer />
 
 </div>
 
