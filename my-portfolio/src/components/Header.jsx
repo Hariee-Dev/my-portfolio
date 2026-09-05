@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import profile from '../images/profile.png';
 import {
   FaMapMarkerAlt,
@@ -17,7 +17,21 @@ import Projects from './Projects';
 import Education from './Education';
 import Footer from './Footer';
 
+const skillTabs = ['All', 'AI & Dev Tools', 'Backend', 'Frontend', 'Databases', 'Architecture'];
+
 const Header = () => {
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filteredSkills = qaData.filter((item) => {
+    if (activeCategory === 'All') return true;
+    if (activeCategory === 'AI & Dev Tools') return item.category.includes('AI') || item.category.includes('Tools');
+    if (activeCategory === 'Backend') return item.category.includes('Backend') || item.category.includes('Security');
+    if (activeCategory === 'Frontend') return item.category.includes('Frontend') || item.category.includes('Languages');
+    if (activeCategory === 'Databases') return item.category.includes('Databases') || item.category.includes('Reporting');
+    if (activeCategory === 'Architecture') return item.category.includes('Concepts');
+    return true;
+  });
+
   return (
     <div className='bg-gray-900 text-white w-full min-h-screen px-4 pb-10'>
       <div className='max-w-5xl pt-8 lg:pt-14 mx-auto'>
@@ -111,24 +125,48 @@ const Header = () => {
             <h2 className="text-2xl font-bold text-white">Technical Skills</h2>
           </div>
 
+          {/* Skill Filter Tabs */}
+          <div className="flex flex-wrap items-center gap-2 mb-6">
+            {skillTabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveCategory(tab)}
+                className={`text-xs px-3.5 py-1.5 rounded-full font-medium transition-all duration-200 cursor-pointer ${
+                  activeCategory === tab
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 border border-blue-400'
+                    : 'bg-gray-800/80 text-gray-300 hover:text-white hover:bg-gray-700/80 border border-gray-700/60'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {qaData.map((item, index) => (
+            {filteredSkills.map((item, index) => (
               <div
                 key={index}
-                className="bg-gray-800/80 border border-gray-700/80 hover:border-gray-600 rounded-xl p-5 shadow transition-all duration-200 flex flex-col justify-between"
+                className="relative group rounded-xl p-5 shadow-md transition-all duration-300 flex flex-col justify-between overflow-hidden hover:-translate-y-1 bg-gradient-to-b from-gray-800/90 to-gray-900/90 border border-gray-700/80 hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/5"
               >
+                {/* Top glowing sheen */}
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/40 to-transparent group-hover:via-blue-400 transition-all duration-300" />
+
                 <div>
-                  <div className="text-xs uppercase font-mono text-blue-400 tracking-wider mb-1">
+                  <div className="text-[11px] uppercase font-mono tracking-wider font-semibold text-blue-400 mb-1.5">
                     {item.category}
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-xs text-gray-400 leading-relaxed mb-4">{item.description}</p>
+                  <h3 className="text-lg font-bold text-white mb-2 tracking-tight group-hover:text-blue-200 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-gray-300/90 leading-relaxed mb-4">
+                    {item.description}
+                  </p>
 
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {item.skills.map((skill, sIdx) => (
                       <span
                         key={sIdx}
-                        className="bg-blue-950/60 border border-blue-800/70 text-blue-300 text-xs px-2.5 py-0.5 rounded font-mono font-medium"
+                        className="bg-blue-950/60 border border-blue-800/70 text-blue-300 text-xs px-2.5 py-1 rounded-md font-mono font-medium hover:border-blue-600 transition-all"
                       >
                         {skill}
                       </span>
@@ -143,7 +181,7 @@ const Header = () => {
                       size={20}
                       style={{ color: color || undefined }}
                       title={title}
-                      className="hover:scale-110 transition-transform duration-200"
+                      className="hover:scale-125 transition-transform duration-200 cursor-pointer"
                     />
                   ))}
                 </div>

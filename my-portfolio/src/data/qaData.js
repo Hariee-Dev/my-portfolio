@@ -21,11 +21,29 @@ import {
   SiBootstrap,
   SiClickhouse,
   SiEclipseide,
+  SiAnthropic,
+  SiOpenai,
+  SiGooglegemini,
+  SiGithubcopilot,
 } from 'react-icons/si';
+import { BsStars } from 'react-icons/bs';
 import { VscVscode } from 'react-icons/vsc';
 import { TbSql } from 'react-icons/tb';
 
 const qaData = [
+  {
+    category: "AI & Developer Tools",
+    title: "AI-Powered Engineering",
+    description: "Proficient with next-generation AI developer tools for accelerated full-stack development, rapid prototyping, and automated code synthesis.",
+    skills: ["Claude Code", "OpenAI Codex", "Google Stitch", "GitHub Copilot", "Cursor"],
+    icons: [
+      { icon: SiAnthropic, color: '#D97706', title: 'Claude Code' },
+      { icon: SiOpenai, color: '#10A37F', title: 'OpenAI Codex' },
+      { icon: SiGooglegemini, color: '#4285F4', title: 'Google Stitch' },
+      { icon: SiGithubcopilot, color: '#818CF8', title: 'GitHub Copilot' },
+      { icon: BsStars, color: '#F59E0B', title: 'AI Engineering' }
+    ],
+  },
   {
     category: "Languages",
     title: "Programming Languages",

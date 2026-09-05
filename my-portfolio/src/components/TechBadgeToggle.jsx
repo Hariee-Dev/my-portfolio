@@ -16,6 +16,9 @@ import {
   SiPostman,
   SiBootstrap,
   SiHtml5,
+  SiAnthropic,
+  SiOpenai,
+  SiGooglegemini,
 } from 'react-icons/si';
 import { TbSql } from 'react-icons/tb';
 
@@ -26,6 +29,9 @@ const TechBadgeToggle = () => {
     { name: 'Java', icon: FaJava, color: '#f97316' },
     { name: 'Spring Boot', icon: SiSpringboot, color: '#22c55e' },
     { name: 'React.js', icon: FaReact, color: '#38bdf8' },
+    { name: 'Claude Code', icon: SiAnthropic, color: '#d97706' },
+    { name: 'OpenAI Codex', icon: SiOpenai, color: '#10a37f' },
+    { name: 'Google Stitch', icon: SiGooglegemini, color: '#4285f4' },
     { name: 'Apache Kafka', icon: SiApachekafka, color: '#f43f5e' },
     { name: 'MySQL', icon: SiMysql, color: '#0ea5e9' },
     { name: 'ClickHouse', icon: SiClickhouse, color: '#eab308' },
