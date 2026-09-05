@@ -4,6 +4,8 @@ import {
   FaJava,
   FaGithub,
   FaGitAlt,
+  FaCode,
+  FaProjectDiagram,
 } from 'react-icons/fa';
 import {
   SiTailwindcss,
@@ -17,18 +19,43 @@ import {
   SiPostman,
   SiSpringsecurity,
   SiBootstrap,
+  SiClickhouse,
+  SiEclipseide,
 } from 'react-icons/si';
+import { VscVscode } from 'react-icons/vsc';
+import { TbSql } from 'react-icons/tb';
 
 const qaData = [
   {
-    title: "Backend & Streaming",
-    description: `I architect high-performance, secure, and event-driven backend microservices.
-    
-    My focus is on microservices, event-driven data streaming pipelines, RESTful API design, and containerized deployments.`,
+    category: "Languages",
+    title: "Programming Languages",
+    description: "Strong foundation in object-oriented and web-standard languages for scalable distributed systems.",
+    skills: ["Java", "JavaScript", "SQL", "HTML5", "CSS3"],
     icons: [
       { icon: FaJava, color: '#E76F00', title: 'Java' },
+      { icon: SiJavascript, color: '#F7DF1E', title: 'JavaScript' },
+      { icon: TbSql, color: '#00758F', title: 'SQL' },
+      { icon: SiHtml5, color: '#E34F26', title: 'HTML5' },
+      { icon: SiCss3, color: '#1572B6', title: 'CSS3' },
+    ],
+  },
+  {
+    category: "Backend",
+    title: "Backend & Microservices",
+    description: "Enterprise backend architecture with Spring Boot, asynchronous Kafka streaming, and robust API design.",
+    skills: [
+      "Spring Boot",
+      "Spring Security",
+      "Spring JDBC",
+      "RESTful API Design",
+      "Microservices",
+      "Apache Kafka",
+      "Docker"
+    ],
+    icons: [
       { icon: SiSpringboot, color: '#6DB33F', title: 'Spring Boot' },
-      { icon: SiApachekafka, color: '#231F20', title: 'Apache Kafka' },
+      { icon: SiSpringsecurity, color: '#6DB33F', title: 'Spring Security' },
+      { icon: SiApachekafka, color: '#FFFFFF', title: 'Apache Kafka' },
       { icon: SiDocker, color: '#2496ED', title: 'Docker' },
       {
         icon: () => (
@@ -37,70 +64,133 @@ const qaData = [
           </span>
         ),
         color: '',
-        title: 'RESTful API'
+        title: 'RESTful API Design'
+      },
+      {
+        icon: () => (
+          <span className="text-[10px] font-bold px-1.5 py-0.5 bg-gray-700 rounded text-gray-200 border border-gray-600">
+            Spring JDBC
+          </span>
+        ),
+        color: '',
+        title: 'Spring JDBC'
       }
     ],
   },
   {
-    title: "Frontend & Design",
-    description: `I build responsive, clean, and interactive user interfaces.
-    
-    Using utility-first framework practices and standard libraries to deliver pixel-perfect designs with fluid user experiences.`,
+    category: "Frontend",
+    title: "Frontend Development",
+    description: "Modern, responsive, user-centric interfaces built with React.js, Tailwind CSS, and semantic layouts.",
+    skills: ["React.js", "Tailwind CSS", "Bootstrap", "HTML5", "CSS3"],
     icons: [
-      { icon: SiHtml5, color: '#E34F26', title: 'HTML5' },
-      { icon: SiCss3, color: '#1572B6', title: 'CSS3' },
-      { icon: SiJavascript, color: '#F7DF1E', title: 'JavaScript' },
       { icon: FaReact, color: '#61DBFB', title: 'React.js' },
       { icon: SiTailwindcss, color: '#38BDF8', title: 'Tailwind CSS' },
-      { icon: SiBootstrap, color: '#7952B3', title: 'Bootstrap' }
+      { icon: SiBootstrap, color: '#7952B3', title: 'Bootstrap' },
+      { icon: SiHtml5, color: '#E34F26', title: 'HTML5' },
+      { icon: SiCss3, color: '#1572B6', title: 'CSS3' }
     ],
   },
   {
-    title: "Databases & Analytics",
-    description: `I design optimized schemas for both relational databases and analytical OLAP engines.
-    
-    Experienced in bulk persistence logic, query speedups, and automated business intelligence reporting pipelines.`,
+    category: "Databases",
+    title: "Databases & OLAP",
+    description: "Relational persistence and ultra-fast analytical queries on high-volume datasets.",
+    skills: ["MySQL", "ClickHouse (OLAP / Columnar)"],
     icons: [
-      { icon: SiMysql, color: '#00758F', title: 'MySQL' },
+      { icon: SiMysql, color: '#38bdf8', title: 'MySQL' },
+      { icon: SiClickhouse, color: '#facc15', title: 'ClickHouse' },
       {
         icon: () => (
-          <span className="text-[10px] font-bold px-1.5 py-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 rounded text-white">
-            ClickHouse
+          <span className="text-[10px] font-semibold px-1.5 py-0.5 bg-gray-800 border border-gray-600 rounded text-gray-300 font-mono">
+            OLAP
           </span>
         ),
         color: '',
-        title: 'ClickHouse'
-      },
+        title: 'Columnar OLAP'
+      }
+    ],
+  },
+  {
+    category: "Reporting & Analytics",
+    title: "Reporting & Analytics",
+    description: "Automated business intelligence pipelines, large dataset analytics, and PDF/tabular report exports.",
+    skills: ["JasperReports", "ClickHouse Analytical Queries"],
+    icons: [
       {
         icon: () => (
-          <span className="text-[10px] font-bold px-1.5 py-0.5 bg-red-600 rounded text-white">
+          <span className="text-[10px] font-semibold px-1.5 py-0.5 bg-gray-800 border border-gray-600 rounded text-gray-300 font-mono">
             JasperReports
           </span>
         ),
         color: '',
         title: 'JasperReports'
-      }
+      },
+      { icon: SiClickhouse, color: '#facc15', title: 'ClickHouse Analytics' }
     ],
   },
   {
-    title: "Security & Tools",
-    description: `I secure applications using robust access control and maintain solid development workflows.
-    
-    Expertise in authentication protocols, RBAC, Git version control, and API testing platforms.`,
+    category: "Security",
+    title: "Security & Access Control",
+    description: "Stateless token-based authentication, RBAC authorization, and audit trail enforcement.",
+    skills: ["Spring Security", "JWT Authentication", "Role-Based Access Control (RBAC)"],
     icons: [
-      { icon: SiSpringsecurity, color: '#6DB33F', title: 'Spring Security' },
+      { icon: SiSpringsecurity, color: '#4ade80', title: 'Spring Security' },
       {
         icon: () => (
-          <span className="text-[10px] font-bold px-1.5 py-0.5 bg-purple-600 rounded text-white">
+          <span className="text-[10px] font-semibold px-1.5 py-0.5 bg-gray-800 border border-gray-600 rounded text-gray-300 font-mono">
             JWT
           </span>
         ),
         color: '',
-        title: 'JWT'
+        title: 'JWT Authentication'
       },
-      { icon: FaGitAlt, color: '#F05032', title: 'Git' },
-      { icon: FaGithub, color: '#FFFFFF', title: 'GitHub' },
-      { icon: SiPostman, color: '#FF6C37', title: 'Postman' }
+      {
+        icon: () => (
+          <span className="text-[10px] font-semibold px-1.5 py-0.5 bg-gray-800 border border-gray-600 rounded text-gray-300 font-mono">
+            RBAC
+          </span>
+        ),
+        color: '',
+        title: 'Role-Based Access Control'
+      }
+    ],
+  },
+  {
+    category: "Tools",
+    title: "Tools & Environments",
+    description: "Industry-standard tooling for version control, API testing, and collaborative engineering.",
+    skills: ["Git", "GitHub", "Postman", "Eclipse", "VS Code"],
+    icons: [
+      { icon: FaGitAlt, color: '#fb923c', title: 'Git' },
+      { icon: FaGithub, color: '#f1f5f9', title: 'GitHub' },
+      { icon: SiPostman, color: '#fb923c', title: 'Postman' },
+      { icon: SiEclipseide, color: '#a78bfa', title: 'Eclipse' },
+      { icon: VscVscode, color: '#38bdf8', title: 'VS Code' }
+    ],
+  },
+  {
+    category: "Concepts",
+    title: "Architecture & Engineering Concepts",
+    description: "Core computer science principles and modern distributed software architectures.",
+    skills: [
+      "Microservices Architecture",
+      "Event-Driven Architecture",
+      "OOP",
+      "SDLC",
+      "Data Structures & Algorithms",
+      "DBMS"
+    ],
+    icons: [
+      { icon: FaProjectDiagram, color: '#38bdf8', title: 'Microservices & Event-Driven Architecture' },
+      { icon: FaCode, color: '#a78bfa', title: 'OOP & Algorithms' },
+      {
+        icon: () => (
+          <span className="text-[10px] font-semibold px-1.5 py-0.5 bg-gray-800 border border-gray-600 rounded text-gray-300 font-mono">
+            SDLC
+          </span>
+        ),
+        color: '',
+        title: 'SDLC'
+      }
     ],
   }
 ];

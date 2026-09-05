@@ -1,115 +1,182 @@
 import React from 'react';
-import profile from '../images/profile.jpg';
-import { FaHome, FaEnvelope } from 'react-icons/fa';
-import { FaLinkedin } from 'react-icons/fa';
+import profile from '../images/profile.png';
+import {
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaLinkedin,
+  FaGithub,
+  FaFileAlt,
+  FaTools,
+  FaBriefcase,
+} from 'react-icons/fa';
 import qaData from '../data/qaData';
 import TechBadgeToggle from './TechBadgeToggle';
 import Experience from './Experience';
 import Projects from './Projects';
+import Education from './Education';
 import Footer from './Footer';
-
-
-
 
 const Header = () => {
   return (
     <div className='bg-gray-900 text-white w-full min-h-screen px-4 pb-10'>
-      <div className='max-w-5xl pt-4 lg:pt-14 mx-auto z-2'>
-        
+      <div className='max-w-5xl pt-8 lg:pt-14 mx-auto'>
+
+        {/* Hero / Profile Section */}
         <div className="profile">
           <div className='profile-img flex items-start justify-between'>
-           <img
-  src={profile}// or use import if from src
-  alt="hari"
-  className="w-40 h-40 md:w-44 md:h-44 object-cover rounded-full border-4 border-gray-800"
-/>
+            <img
+              src={profile}
+              alt="Hariharasudhan M"
+              className="w-36 h-36 md:w-44 md:h-44 object-cover rounded-full border-4 border-gray-800 shadow-xl"
+            />
           </div>
 
-          <div className="name text-3xl font-semibold font-sans mt-4">
+          <div className="name text-3xl md:text-4xl font-bold font-sans mt-5 tracking-tight text-white">
             Hariharasudhan M
           </div>
 
-          <div className="role font-light text-blue-400 text-lg mt-1 tracking-wide">
-            Full Stack Developer
+          <div className="role font-medium text-blue-400 text-lg md:text-xl mt-1 tracking-wide">
+            Full Stack Developer | Java · Spring Boot · React.js
           </div>
 
-          <div className='about mt-5 text-gray-300 leading-relaxed max-w-3xl'>
-            I am a results-driven Full Stack Developer with 1.4 years of professional experience building and shipping production-grade enterprise applications at Solartis. My core expertise lies in Java, Spring Boot, and React.js, with a proven track record of architecting robust microservices, implementing scalable event-driven systems using Apache Kafka, and designing high-throughput RESTful APIs. Passionate about engineering excellence, I champion simplicity, performance, and clean maintainability in every line of code I write.
+          {/* Professional Summary */}
+          <div className='about mt-4 text-gray-300 leading-relaxed max-w-4xl text-sm md:text-base'>
+            Full Stack Developer specializing in Java, Spring Boot, and React.js, with experience delivering two production-grade enterprise applications end-to-end — from system design through deployment. Skilled in microservices, event-driven architecture with Apache Kafka, and secure RESTful API development using Spring Security and JWT. Comfortable working across the stack, including OLAP analytics with ClickHouse and responsive UI development with Tailwind CSS, with a track record of measurable performance and efficiency gains.
           </div>
 
-          <div className="address mt-5 flex items-center gap-2 text-gray-300 text-sm">
-            <FaHome className="text-blue-400" />
-            Madurai, Tamil Nadu
+          {/* Contact Details */}
+          <div className="contact-info mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-300">
+            <div className="flex items-center gap-2">
+              <FaMapMarkerAlt className="text-blue-400 shrink-0" />
+              <span>Madurai, Tamil Nadu</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <FaPhoneAlt className="text-blue-400 shrink-0" />
+              <a href="tel:+919345293334" className="hover:text-blue-300 transition-colors">
+                +91-9345293334
+              </a>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <FaEnvelope className="text-blue-400 shrink-0" />
+              <a href="mailto:hariharasudhan.magudeeswaran@gmail.com" className="text-blue-300 hover:underline">
+                hariharasudhan.magudeeswaran@gmail.com
+              </a>
+            </div>
           </div>
 
-          <div className="mail mt-2 flex items-center gap-2 text-blue-300 text-sm">
-            <FaEnvelope className="text-blue-400" />
-            <a href='mailto:hariharasudhanm2712@gmail.com' className="hover:underline">
-              hariharasudhanm2712@gmail.com
+          {/* Call-to-Action Buttons */}
+          <div className="cta-buttons mt-5 flex flex-wrap gap-3">
+            <a
+              href="https://www.linkedin.com/in/harie2712"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md flex items-center gap-2 text-sm transition-colors shadow-sm"
+            >
+              <FaLinkedin size={18} />
+              <span>LinkedIn</span>
+            </a>
+
+            <a
+              href="https://github.com/Hariee-Dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-gray-500 text-white font-medium py-2 px-4 rounded-md flex items-center gap-2 text-sm transition-colors shadow-sm"
+            >
+              <FaGithub size={18} />
+              <span>GitHub</span>
+            </a>
+
+            <a
+              href={`${process.env.PUBLIC_URL}/Hariharasudhan_M_Resume.pdf`}
+              download="Hariharasudhan_M_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-gray-500 text-gray-200 hover:text-white font-medium py-2 px-4 rounded-md text-sm transition-colors shadow-sm inline-flex items-center gap-2"
+            >
+              <FaFileAlt size={15} />
+              <span>Resume</span>
             </a>
           </div>
 
-          <div className="linkedIn mt-4 ">
-           
-            <button className="ctl bg-blue-500 hover:bg-blue-600 text-white py-2 px-3 rounded-sm flex gap-1 justify-center items-center" onClick={()=>{
-              window.open('https://www.linkedin.com/in/harie2712/','_blank');
-            }}>
-               <FaLinkedin size={20}/>
-              Connect on LinkedIn
-            </button>
+          <hr className='mt-10 border-gray-800' />
+        </div>
+
+        {/* Technical Skills Section */}
+        <div className="skills-section mt-10">
+          <div className="flex items-center gap-2 mb-6">
+            <FaTools className="text-blue-400" />
+            <h2 className="text-2xl font-bold text-white">Technical Skills</h2>
           </div>
-          <hr className='mt-8 border-gray-700'/>
-          
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {qaData.map((item, index) => (
+              <div
+                key={index}
+                className="bg-gray-800/80 border border-gray-700/80 hover:border-gray-600 rounded-xl p-5 shadow transition-all duration-200 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="text-xs uppercase font-mono text-blue-400 tracking-wider mb-1">
+                    {item.category}
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-xs text-gray-400 leading-relaxed mb-4">{item.description}</p>
+
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {item.skills.map((skill, sIdx) => (
+                      <span
+                        key={sIdx}
+                        className="bg-blue-950/60 border border-blue-800/70 text-blue-300 text-xs px-2.5 py-0.5 rounded font-mono font-medium"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3 pt-3 border-t border-gray-700/50">
+                  {item.icons.map(({ icon: Icon, color, title }, i) => (
+                    <Icon
+                      key={i}
+                      size={20}
+                      style={{ color: color || undefined }}
+                      title={title}
+                      className="hover:scale-110 transition-transform duration-200"
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <TechBadgeToggle />
         </div>
 
-        <div className="skills-Section">
-  <p className="skill text-xl font-semibold mt-4">Skills</p>
+        <hr className='mt-12 border-gray-800' />
 
-  <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-    {qaData.map((item, index) => (
-      <div
-        key={index}
-        className="bg-gray-800 border border-gray-700 rounded-lg p-5 shadow"
-      >
-        <h1 className="text-2xl font-bold text-white mb-2">{item.title}</h1>
-        <p className="text-gray-300 whitespace-pre-line">{item.description}</p>
+        {/* Projects Section */}
+        <Projects />
 
-        <div className="flex flex-wrap gap-3 mt-4">
-          {item.icons.map(({ icon: Icon, color, title }, i) => (
-            <Icon
-              key={i}
-              size={24}
-              style={{ color }}
-              title={title}
-              className="hover:scale-110 transition-transform duration-200"
-            />
-          ))}
+        <hr className='mt-12 border-gray-800' />
+
+        {/* Professional Experience Section */}
+        <div className="experience-section mt-12">
+          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <FaBriefcase className="text-blue-400" />
+            Professional Experience
+          </h2>
+          <Experience />
         </div>
-      </div>
-    ))}
-  </div>
 
-  <TechBadgeToggle />
+        <hr className='mt-12 border-gray-800' />
 
-  <hr className='mt-8 border-gray-700'/>
+        {/* Education Section */}
+        <Education />
 
-  <Projects />
-
-  <hr className='mt-8 border-gray-700'/>
-
-  <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-    Professional Experience
-  </h2>
-
-  <Experience />
-
-  <Footer />
-
-</div>
-
-
-
-
+        {/* Footer Section */}
+        <Footer />
 
       </div>
     </div>

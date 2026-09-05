@@ -12,54 +12,71 @@ import {
   SiApachekafka,
   SiDocker,
   SiClickhouse,
+  SiJavascript,
+  SiPostman,
+  SiBootstrap,
+  SiHtml5,
 } from 'react-icons/si';
+import { TbSql } from 'react-icons/tb';
 
 const TechBadgeToggle = () => {
   const [showList, setShowList] = useState(false);
 
   const techStack = [
-    { name: 'Java', icon: FaJava, bg: 'bg-gradient-to-r from-red-600 to-orange-600' },
-    { name: 'Spring Boot', icon: SiSpringboot, bg: 'bg-gradient-to-r from-green-600 to-emerald-600' },
-    { name: 'Spring Security', icon: SiSpringsecurity, bg: 'bg-gradient-to-r from-lime-600 to-green-700' },
-    { name: 'Apache Kafka', icon: SiApachekafka, bg: 'bg-gradient-to-r from-gray-700 to-gray-900' },
-    { name: 'MySQL', icon: SiMysql, bg: 'bg-gradient-to-r from-blue-600 to-cyan-600' },
-    { name: 'ClickHouse', icon: SiClickhouse, bg: 'bg-gradient-to-r from-yellow-500 to-orange-500' },
-    { name: 'React', icon: FaReact, bg: 'bg-gradient-to-r from-cyan-500 to-blue-500' },
-    { name: 'Tailwind CSS', icon: SiTailwindcss, bg: 'bg-gradient-to-r from-sky-400 to-blue-500' },
-    { name: 'Docker', icon: SiDocker, bg: 'bg-gradient-to-r from-blue-500 to-indigo-600' },
-    { name: 'GitHub', icon: FaGithub, bg: 'bg-gradient-to-r from-zinc-700 to-zinc-900' },
+    { name: 'Java', icon: FaJava, iconColor: '#f97316' },
+    { name: 'Spring Boot', icon: SiSpringboot, iconColor: '#4ade80' },
+    { name: 'React.js', icon: FaReact, iconColor: '#38bdf8' },
+    { name: 'Apache Kafka', icon: SiApachekafka, iconColor: '#e2e8f0' },
+    { name: 'MySQL', icon: SiMysql, iconColor: '#38bdf8' },
+    { name: 'ClickHouse', icon: SiClickhouse, iconColor: '#facc15' },
+    { name: 'Spring Security', icon: SiSpringsecurity, iconColor: '#4ade80' },
+    { name: 'JavaScript', icon: SiJavascript, iconColor: '#facc15' },
+    { name: 'SQL', icon: TbSql, iconColor: '#2dd4bf' },
+    { name: 'Tailwind CSS', icon: SiTailwindcss, iconColor: '#38bdf8' },
+    { name: 'Bootstrap', icon: SiBootstrap, iconColor: '#a78bfa' },
+    { name: 'Docker', icon: SiDocker, iconColor: '#60a5fa' },
+    { name: 'Postman', icon: SiPostman, iconColor: '#fb923c' },
+    { name: 'Git & GitHub', icon: FaGithub, iconColor: '#e2e8f0' },
+    { name: 'HTML5 & CSS3', icon: SiHtml5, iconColor: '#fb923c' },
   ];
 
   return (
-    <div className="text-white">
-      <label className="flex items-center gap-2 mb-4 cursor-pointer">
-        <input
-          type="checkbox"
-          checked={showList}
-          onChange={() => setShowList(!showList)}
-        />
-        <span className="font-semibold">Show as List</span>
-      </label>
+    <div className="text-white mt-8">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-xs uppercase font-mono tracking-wider text-gray-400">Core Technologies</span>
+        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-300 hover:text-white select-none">
+          <input
+            type="checkbox"
+            checked={showList}
+            onChange={() => setShowList(!showList)}
+            className="rounded bg-gray-800 border-gray-700 text-blue-500 focus:ring-0 cursor-pointer"
+          />
+          <span className="font-medium">Show as Grid</span>
+        </label>
+      </div>
 
       {showList ? (
-        <ul className="space-y-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
           {techStack.map((tech, i) => (
-            <li key={i} className="flex items-center gap-2 font-semibold">
-              <tech.icon size={20} />
-              {tech.name}
-            </li>
+            <div
+              key={i}
+              className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-gray-800/80 hover:bg-gray-750 border border-gray-700/80 hover:border-gray-500 text-gray-200 text-sm font-medium transition-all shadow-sm"
+            >
+              <tech.icon size={18} style={{ color: tech.iconColor }} className="shrink-0" />
+              <span className="truncate">{tech.name}</span>
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
-        <div className="relative overflow-hidden w-full">
+        <div className="relative overflow-hidden w-full py-1">
           <div className="flex w-max animate-slide hover:[animation-play-state:paused]">
             {[...techStack, ...techStack].map((tech, i) => (
               <div
                 key={i}
-                className={`flex items-center gap-2 px-3 py-1 mx-1 rounded-full ${tech.bg} border border-white/20 text-sm whitespace-nowrap shrink-0 font-semibold`}
+                className="flex items-center gap-2 px-3.5 py-1.5 mx-1.5 rounded-full bg-gray-800/90 hover:bg-gray-750 border border-gray-700/80 hover:border-gray-500 text-gray-200 text-sm whitespace-nowrap shrink-0 font-medium transition-all shadow-sm"
               >
-                <tech.icon size={18} />
-                {tech.name}
+                <tech.icon size={16} style={{ color: tech.iconColor }} />
+                <span>{tech.name}</span>
               </div>
             ))}
           </div>

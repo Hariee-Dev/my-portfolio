@@ -1,72 +1,72 @@
 import React from 'react';
+import { FaLaptopCode } from 'react-icons/fa';
 import projectsData from '../data/projectsData';
 
 const Projects = () => {
   return (
     <div className="projects-section mt-12">
       <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-        Key Enterprise Projects
+        <FaLaptopCode className="text-blue-400" />
+        Projects
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="flex flex-col gap-6">
         {projectsData.map((project, i) => (
           <div
             key={i}
-            className="group relative bg-gray-800/90 border border-gray-700 rounded-xl overflow-hidden p-6 transition-all duration-300 hover:-translate-y-2 hover:border-gray-600 hover:shadow-[0_10px_30px_-10px_rgba(59,130,246,0.2)] flex flex-col justify-between"
+            className="bg-gray-800/90 border border-gray-700/80 rounded-xl p-6 sm:p-7 shadow-md"
           >
-
-            <div>
-              {/* Header */}
-              <div className="flex justify-between items-start mb-2">
-                <div>
-                  <h3 className="text-2xl font-extrabold text-white group-hover:text-blue-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm font-semibold text-blue-300">
-                    {project.subtitle}
-                  </p>
+            {/* Header: Title, Subtitle, and Timeline */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  {project.title}
+                </h3>
+                <p className="text-sm font-medium text-blue-400 mt-0.5">
+                  {project.subtitle}
+                </p>
+                <div className="text-xs text-gray-400 mt-1 font-mono">
+                  {project.role}
                 </div>
-                <span className="text-xs bg-gray-700 text-gray-300 px-2.5 py-1 rounded-full font-medium">
+              </div>
+
+              <div>
+                <span className="inline-block text-xs bg-gray-700/80 text-gray-300 border border-gray-600/50 px-3 py-1 rounded-full font-mono">
                   {project.period}
                 </span>
               </div>
-
-              {/* Role & Company info */}
-              <div className="text-xs text-gray-400 mb-4 font-mono">
-                {project.role} &bull; {project.company}
-              </div>
-
-              {/* Metrics Grid */}
-              <div className="grid grid-cols-3 gap-3 my-4 bg-gray-900/50 p-3 rounded-lg border border-gray-700/50">
-                {project.metrics.map((metric, j) => (
-                  <div key={j} className="text-center">
-                    <div className="text-lg md:text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
-                      {metric.value}
-                    </div>
-                    <div className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
-                      {metric.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Accomplishments */}
-              <ul className="space-y-2.5 text-sm text-gray-300 mb-6">
-                {project.bullets.map((bullet, j) => (
-                  <li key={j} className="flex items-start gap-2">
-                    <span className="text-blue-500 mt-1.5 shrink-0 text-xs">&#9670;</span>
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
 
+            {/* Impact Metrics Strip */}
+            <div className="grid grid-cols-3 divide-x divide-gray-700/60 bg-gray-900/60 border border-gray-700/60 rounded-lg py-3 px-2 my-5 text-center">
+              {project.metrics.map((metric, j) => (
+                <div key={j} className="px-2">
+                  <div className="text-xl sm:text-2xl font-bold text-white font-mono">
+                    {metric.value}
+                  </div>
+                  <div className="text-[11px] text-gray-400 uppercase tracking-wider mt-0.5">
+                    {metric.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Project Bullets */}
+            <ul className="space-y-2.5 text-sm text-gray-300 mb-6">
+              {project.bullets.map((bullet, idx) => (
+                <li key={idx} className="flex items-start gap-2.5">
+                  <span className="text-blue-400 mt-1.5 shrink-0 text-xs">&#9670;</span>
+                  <span className="leading-relaxed">{bullet}</span>
+                </li>
+              ))}
+            </ul>
+
             {/* Tech Stack Tags */}
-            <div className="flex flex-wrap gap-1.5 pt-3 border-t border-gray-700/50">
+            <div className="flex flex-wrap gap-1.5 pt-4 border-t border-gray-700/60">
               {project.technologies.map((tech, j) => (
                 <span
                   key={j}
-                  className="bg-gray-700/50 text-gray-300 border border-gray-600/50 px-2 py-0.5 rounded text-xs font-mono"
+                  className="bg-blue-950/60 text-blue-300 border border-blue-800/70 text-xs px-2.5 py-0.5 rounded font-mono font-medium"
                 >
                   {tech}
                 </span>
