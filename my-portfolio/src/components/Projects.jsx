@@ -38,13 +38,19 @@ const Projects = () => {
             </div>
 
             {/* Impact Metrics Strip */}
-            <div className="grid grid-cols-3 divide-x divide-gray-700/60 bg-gray-900/60 border border-gray-700/60 rounded-lg py-3 px-2 my-5 text-center">
+            <div className="grid grid-cols-3 gap-2.5 sm:gap-3 my-5">
               {project.metrics.map((metric, j) => (
-                <div key={j} className="px-2">
-                  <div className="text-xl sm:text-2xl font-bold text-white font-mono">
+                <div
+                  key={j}
+                  className="relative group overflow-hidden rounded-xl bg-gradient-to-b from-slate-800/80 to-slate-900/90 border border-slate-700/70 hover:border-blue-500/50 p-3 sm:p-3.5 text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/10"
+                >
+                  {/* Subtle top glow highlight */}
+                  <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/40 to-transparent group-hover:via-cyan-400 transition-all duration-300" />
+
+                  <div className="text-xl sm:text-2xl md:text-3xl font-extrabold font-mono tracking-tight bg-gradient-to-r from-blue-400 via-sky-300 to-teal-300 bg-clip-text text-transparent">
                     {metric.value}
                   </div>
-                  <div className="text-[11px] text-gray-400 uppercase tracking-wider mt-0.5">
+                  <div className="text-[10px] sm:text-xs font-semibold text-slate-400 group-hover:text-slate-300 uppercase tracking-wider mt-1 transition-colors leading-tight">
                     {metric.label}
                   </div>
                 </div>

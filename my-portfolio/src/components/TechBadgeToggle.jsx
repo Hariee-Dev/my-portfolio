@@ -23,21 +23,21 @@ const TechBadgeToggle = () => {
   const [showList, setShowList] = useState(false);
 
   const techStack = [
-    { name: 'Java', icon: FaJava, iconColor: '#f97316' },
-    { name: 'Spring Boot', icon: SiSpringboot, iconColor: '#4ade80' },
-    { name: 'React.js', icon: FaReact, iconColor: '#38bdf8' },
-    { name: 'Apache Kafka', icon: SiApachekafka, iconColor: '#e2e8f0' },
-    { name: 'MySQL', icon: SiMysql, iconColor: '#38bdf8' },
-    { name: 'ClickHouse', icon: SiClickhouse, iconColor: '#facc15' },
-    { name: 'Spring Security', icon: SiSpringsecurity, iconColor: '#4ade80' },
-    { name: 'JavaScript', icon: SiJavascript, iconColor: '#facc15' },
-    { name: 'SQL', icon: TbSql, iconColor: '#2dd4bf' },
-    { name: 'Tailwind CSS', icon: SiTailwindcss, iconColor: '#38bdf8' },
-    { name: 'Bootstrap', icon: SiBootstrap, iconColor: '#a78bfa' },
-    { name: 'Docker', icon: SiDocker, iconColor: '#60a5fa' },
-    { name: 'Postman', icon: SiPostman, iconColor: '#fb923c' },
-    { name: 'Git & GitHub', icon: FaGithub, iconColor: '#e2e8f0' },
-    { name: 'HTML5 & CSS3', icon: SiHtml5, iconColor: '#fb923c' },
+    { name: 'Java', icon: FaJava, color: '#f97316' },
+    { name: 'Spring Boot', icon: SiSpringboot, color: '#22c55e' },
+    { name: 'React.js', icon: FaReact, color: '#38bdf8' },
+    { name: 'Apache Kafka', icon: SiApachekafka, color: '#f43f5e' },
+    { name: 'MySQL', icon: SiMysql, color: '#0ea5e9' },
+    { name: 'ClickHouse', icon: SiClickhouse, color: '#eab308' },
+    { name: 'Spring Security', icon: SiSpringsecurity, color: '#10b981' },
+    { name: 'JavaScript', icon: SiJavascript, color: '#facc15' },
+    { name: 'SQL', icon: TbSql, color: '#14b8a6' },
+    { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06b6d4' },
+    { name: 'Bootstrap', icon: SiBootstrap, color: '#a855f7' },
+    { name: 'Docker', icon: SiDocker, color: '#3b82f6' },
+    { name: 'Postman', icon: SiPostman, color: '#f97316' },
+    { name: 'Git & GitHub', icon: FaGithub, color: '#94a3b8' },
+    { name: 'HTML5 & CSS3', icon: SiHtml5, color: '#ea580c' },
   ];
 
   return (
@@ -60,9 +60,14 @@ const TechBadgeToggle = () => {
           {techStack.map((tech, i) => (
             <div
               key={i}
-              className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-gray-800/80 hover:bg-gray-750 border border-gray-700/80 hover:border-gray-500 text-gray-200 text-sm font-medium transition-all shadow-sm"
+              className="flex items-center gap-2.5 px-3 py-2 rounded-lg border backdrop-blur-sm text-gray-100 text-sm font-medium transition-all duration-300 hover:scale-105 cursor-default"
+              style={{
+                backgroundColor: `${tech.color}15`,
+                borderColor: `${tech.color}40`,
+                boxShadow: `0 2px 8px ${tech.color}15`
+              }}
             >
-              <tech.icon size={18} style={{ color: tech.iconColor }} className="shrink-0" />
+              <tech.icon size={18} style={{ color: tech.color }} className="shrink-0" />
               <span className="truncate">{tech.name}</span>
             </div>
           ))}
@@ -73,9 +78,14 @@ const TechBadgeToggle = () => {
             {[...techStack, ...techStack].map((tech, i) => (
               <div
                 key={i}
-                className="flex items-center gap-2 px-3.5 py-1.5 mx-1.5 rounded-full bg-gray-800/90 hover:bg-gray-750 border border-gray-700/80 hover:border-gray-500 text-gray-200 text-sm whitespace-nowrap shrink-0 font-medium transition-all shadow-sm"
+                className="flex items-center gap-2 px-3.5 py-1.5 mx-1.5 rounded-full border backdrop-blur-sm text-gray-100 text-sm whitespace-nowrap shrink-0 font-medium transition-all duration-300 hover:scale-105 cursor-default"
+                style={{
+                  backgroundColor: `${tech.color}15`,
+                  borderColor: `${tech.color}40`,
+                  boxShadow: `0 2px 8px ${tech.color}15`
+                }}
               >
-                <tech.icon size={16} style={{ color: tech.iconColor }} />
+                <tech.icon size={16} style={{ color: tech.color }} />
                 <span>{tech.name}</span>
               </div>
             ))}
