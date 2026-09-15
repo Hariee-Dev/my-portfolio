@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import profile from '../images/profile.png';
+import resumePdf from '../resume/Hariharasudhan_M_Resume.pdf';
 import {
   FaMapMarkerAlt,
   FaEnvelope,
@@ -104,7 +105,7 @@ const Header = () => {
             </a>
 
             <a
-              href={`${process.env.PUBLIC_URL}/Hariharasudhan_M_Resume.pdf`}
+              href={resumePdf}
               download="Hariharasudhan_M_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"

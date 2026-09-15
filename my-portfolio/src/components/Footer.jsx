@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaLinkedin, FaGithub, FaEnvelope, FaPhoneAlt, FaFileAlt } from 'react-icons/fa';
+import resumePdf from '../resume/Hariharasudhan_M_Resume.pdf';
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -47,7 +48,7 @@ const Footer = () => {
             <FaPhoneAlt size={16} />
           </a>
           <a
-            href={`${process.env.PUBLIC_URL}/Hariharasudhan_M_Resume.pdf`}
+            href={resumePdf}
             download="Hariharasudhan_M_Resume.pdf"
             className="hover:text-white transition-colors text-xs font-mono font-medium px-2.5 py-1 rounded bg-gray-800/80 border border-gray-700/80 hover:border-gray-500 flex items-center gap-1.5"
             title="Resume"

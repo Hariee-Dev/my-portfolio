@@ -16,6 +16,23 @@
         {
           "key": "Content-Disposition",
           "value": "attachment; filename=\"Hariharasudhan_M_Resume.pdf\""
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/static/media/(.*).pdf",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"Hariharasudhan_M_Resume.pdf\""
         }
       ]
     }
